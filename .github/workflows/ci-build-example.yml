@@ -28,5 +28,6 @@ jobs:
           SLR_SIKALABS_UPLOAD_BIN_ACCESS_KEY: ${{ secrets.SLR_SIKALABS_UPLOAD_BIN_ACCESS_KEY }}
           SLR_SIKALABS_UPLOAD_BIN_SECRET_KEY: ${{ secrets.SLR_SIKALABS_UPLOAD_BIN_SECRET_KEY }}
         run: |
-          curl -fsSL https://raw.githubusercontent.com/sikalabs/slr/master/install.sh | sudo sh
-          slr sikalabs-upload-bin ci-build-example-linux-amd64
+          wget https://sikalabs.fra1.cdn.digitaloceanspaces.com/bin/slr-linux-amd64
+          chmod +x slr-linux-amd64
+          ./slr-linux-amd64 sikalabs-upload-bin ci-build-example-linux-amd64
