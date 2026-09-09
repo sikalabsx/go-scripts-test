@@ -32,5 +32,6 @@ jobs:
           SLR_SIKALABS_UPLOAD_BIN_ACCESS_KEY: ${{ secrets.SLR_SIKALABS_UPLOAD_BIN_ACCESS_KEY }}
           SLR_SIKALABS_UPLOAD_BIN_SECRET_KEY: ${{ secrets.SLR_SIKALABS_UPLOAD_BIN_SECRET_KEY }}
         run: |
-          go install github.com/sikalabsx/go-scripts-test/upload-sikalabs-bin@b268f8f
-          upload-sikalabs-bin ${{ inputs.module }}-linux-amd64
+          curl -O https://sikalabs.fra1.digitaloceanspaces.com/bin/upload-sikalabs-bin-linux-amd64
+          chmod +x upload-sikalabs-bin-linux-amd64
+          ./upload-sikalabs-bin-linux-amd64 ${{ inputs.module }}-linux-amd64
