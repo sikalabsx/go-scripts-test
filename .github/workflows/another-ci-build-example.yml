@@ -1,0 +1,16 @@
+name: another-ci-build-example
+
+on:
+  push:
+    paths:
+      - 'another-ci-build-example/**'
+  pull_request:
+    paths:
+      - 'another-ci-build-example/**'
+
+jobs:
+  build:
+    uses: ./.github/workflows/_build-and-upload.yml
+    with:
+      module: another-ci-build-example
+    secrets: inherit
