@@ -1,0 +1,16 @@
+name: hello-world
+
+on:
+  push:
+    paths:
+      - 'hello-world/**'
+  pull_request:
+    paths:
+      - 'hello-world/**'
+
+jobs:
+  hello-world:
+    uses: ./.github/workflows/_build-and-upload.yml
+    with:
+      module: hello-world
+    secrets: inherit
