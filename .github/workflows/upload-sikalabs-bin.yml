@@ -9,7 +9,7 @@ on:
       - 'upload-sikalabs-bin/**'
 
 jobs:
-  build:
+  upload-sikalabs-bin:
     uses: ./.github/workflows/_build-and-upload.yml
     with:
       module: upload-sikalabs-bin

@@ -9,7 +9,7 @@ on:
       - 'another-ci-build-example/**'
 
 jobs:
-  build:
+  another-ci-build-example:
     uses: ./.github/workflows/_build-and-upload.yml
     with:
       module: another-ci-build-example
