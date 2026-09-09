@@ -10,23 +10,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-
-      - uses: actions/setup-go@v5
-        with:
-          go-version: '1.26'
-
-      - name: Build linux/amd64
-        working-directory: ci-build-example
-        run: GOOS=linux GOARCH=amd64 go build -o ci-build-example-linux-amd64
-
-      - name: upload linux/amd64 build
-        working-directory: ci-build-example
-        env:
-          SLR_SIKALABS_UPLOAD_BIN_ACCESS_KEY: ${{ secrets.SLR_SIKALABS_UPLOAD_BIN_ACCESS_KEY }}
-          SLR_SIKALABS_UPLOAD_BIN_SECRET_KEY: ${{ secrets.SLR_SIKALABS_UPLOAD_BIN_SECRET_KEY }}
-        run: |
-          go install github.com/sikalabsx/go-scripts-test/upload-sikalabs-bin@b268f8f
-          upload-sikalabs-bin ci-build-example-linux-amd64
+    uses: ./.github/workflows/_build-and-upload.yml
+    with:
+      module: ci-build-example
+    secrets: inherit
