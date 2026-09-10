@@ -1,0 +1,16 @@
+name: gravatar-image-from-email
+
+on:
+  push:
+    paths:
+      - 'gravatar-image-from-email/**'
+  pull_request:
+    paths:
+      - 'gravatar-image-from-email/**'
+
+jobs:
+  gravatar-image-from-email:
+    uses: ./.github/workflows/_build-and-upload.yml
+    with:
+      module: gravatar-image-from-email
+    secrets: inherit
