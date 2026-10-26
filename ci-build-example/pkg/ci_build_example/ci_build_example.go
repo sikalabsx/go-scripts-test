@@ -4,7 +4,7 @@ import (
 	"fmt"
 )
 
-var BuildNumber = "7"
+var BuildNumber = "8"
 
 func CI_Build_Example() {
 	fmt.Println("ci-build-example: build number:", BuildNumber)
